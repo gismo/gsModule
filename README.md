@@ -3,12 +3,12 @@ This is a template repository for starting new submodules
 
 
 # Table of contents
-- 1. [Introduction](#introduction)
-- 2. [How to use the submodules](#paragraph1)
-    * 2.1. [Directory structure](#subparagraph1)
-    * 2.2. [Inserting the module to the PR testing framework](#subparagraph2)
-    * 2.3. [Adding unittests](#subparagraph3)  
-- 3. [FAQ](#faq)
+- [1. Introduction](#introduction)
+- [2. How to use the submodules](#paragraph1)
+    * [2.1. Directory structure](#subparagraph1)
+    * [2.2. Inserting the module to the PR testing framework](#subparagraph2)
+    * [2.3. Adding unittests](#subparagraph3)  
+- [3. FAQ](#faq)
 
 ## Introduction <a name="introduction"></a>
 - Download (Either with the flag or in the txt file; optional with HASH tag)
