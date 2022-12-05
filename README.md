@@ -25,7 +25,7 @@ As given in CMakeList.txt:
 - Source and Header files are in ...
 - To include the header file, use #include<gsSubmodule/gsHeader1.h>
 
-### Inserting the module to the PR testing framework <a name="subparagraph2"></a>
+### Inserting the module to the CI/PR testing framework <a name="subparagraph2"></a>
 - TODO
 
 ### Adding unittests <a name="subparagraph3"></a>
