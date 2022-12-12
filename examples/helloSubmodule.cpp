@@ -14,8 +14,8 @@
 //! [Include namespace]
 #include <gismo.h>
 
-#include <gsSubmodule/gsFolder1/gsHeader1.h>
-#include <gsSubmodule/gsHeader2.h>
+#include <gsModule/gsTemplates/gsClass.h>
+#include <gsModule/gsHeader2.h>
 
 using namespace gismo;
 //! [Include namespace]
