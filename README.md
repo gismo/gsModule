@@ -11,10 +11,10 @@ This is a template repository for starting new submodules
 - [3. FAQ](#faq)
 
 ## Introduction <a name="introduction"></a>
-- Download (Either with the flag or in the txt file; optional with HASH tag)
-- Stored in extensions/
-- Locally also possible (without using e.g. github.com/gismo/gsSubmodule.git)
-- For having a github backup in github.com/gismo/ --> ask Angelos
+- Download (Either with the flag or in the txt file; optionally with HASH tag)
+- Stored in optional/
+- Locally also possible (without using e.g. github.com/gismo/gsModule.git)
+- For having a github backup in github.com/gismo/ --> Contact gismo@inria.fr
 
 ## How to use the submodules <a name="paragraph1"></a>
 As given in CMakeList.txt:
@@ -23,7 +23,7 @@ As given in CMakeList.txt:
 - Examples are stored in examples and can be run inside in build folder
 - The same for filedata
 - Source and Header files are in ...
-- To include the header file, use #include<gsSubmodule/gsHeader1.h>
+- To include the header file, use eg. #include<src/gsHeader2.h>
 
 ### Inserting the module to the CI/PR testing framework <a name="subparagraph2"></a>
 - TODO
