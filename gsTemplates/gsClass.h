@@ -9,6 +9,8 @@
     file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
     Author(s): P. Weinmueller
+
+SEE ALSO: https://github.com/gismo/gismo/wiki/Contributing#code-style-and-formatting
 */
 
 #pragma once
