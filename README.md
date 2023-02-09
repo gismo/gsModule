@@ -1,4 +1,4 @@
-# gsMmodule
+# gsModule
 This is a template repository for starting new submodules
 
 
