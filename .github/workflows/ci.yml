@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/checkout@master
         with:
-          path: ./gismo/optional
+          path: ./gismo/optional/${{ github.event.repository.name }}
           #token: ${{ secrets.GH_PAT }}
 
       - name: "Run for ${{ matrix.os }}"
