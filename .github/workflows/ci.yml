@@ -19,19 +19,18 @@ env:
 
 jobs:
   build:
-    name: "Run for ${{ matrix.os }}"
     runs-on: "${{ matrix.os }}"
     strategy:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
     steps:
-      uses: actions/checkout@master
+      - uses: actions/checkout@master
         with:
           repository: gismo/gismo
           path: ./gismo
 
-      name: Running ctest
-      shell: bash
-      working-directory: ${{runner.workspace}}
-      run: ctest -S gismo/cmake/ctest_script.cmake -D CTEST_BUILD_NAME="actions_$GITHUB_RUN_NUMBER" -D CTEST_SITE="${{ matrix.os }}_[actions]" -D CMAKE_ARGS="-DCMAKE_BUILD_TYPE=$BUILD_TYPE;-DCMAKE_CXX_STANDARD=11;-DGISMO_WITH_XDEBUG=ON;-DGISMO_BUILD_UNITTESTS=ON" -D GISMO_OPTIONAL="${{ github.event.repository.name }}" -Q
+      - name: "Run for ${{ matrix.os }}"
+        shell: bash
+        working-directory: ${{runner.workspace}}
+        run: ctest -S gismo/cmake/ctest_script.cmake -D CTEST_BUILD_NAME="actions_$GITHUB_RUN_NUMBER" -D CTEST_SITE="${{ matrix.os }}_[actions]" -D CMAKE_ARGS="-DCMAKE_BUILD_TYPE=$BUILD_TYPE;-DCMAKE_CXX_STANDARD=11;-DGISMO_WITH_XDEBUG=ON;-DGISMO_BUILD_UNITTESTS=ON" -D GISMO_OPTIONAL="${{ github.event.repository.name }}" -Q
