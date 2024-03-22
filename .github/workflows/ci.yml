@@ -3,7 +3,6 @@ name: ci
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
-
   push:
     branches:
       - main
@@ -20,8 +19,6 @@ env:
 
 jobs:
   build:
-    uses:
-      gismo/gismo/.github/workflows/gismo.yml@stable
     name: "Run for ${{ matrix.os }}"
     runs-on: "${{ matrix.os }}"
     strategy:
@@ -29,14 +26,12 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
     steps:
-    - uses: actions/checkout@v2
+      uses: actions/checkout@master
+        with:
+          repository: gismo/gismo
+          path: ./gismo
 
-    - name: Running ctest
-      # Use a bash shell so we can use the same syntax for environment variable
-      # access regardless of the host operating system
+      name: Running ctest
       shell: bash
       working-directory: ${{runner.workspace}}
-      # Note the current convention is to use the -S and -B options here to specify source 
-      # and build directories, but this is only available with CMake 3.13 and higher.  
-      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
-      run: ctest -S gismo/cmake/ctest_script.cmake -D CTEST_BUILD_NAME="actions_$GITHUB_RUN_NUMBER" -D CTEST_SITE="${{ matrix.os }}_[actions]" -D CMAKE_ARGS="-DCMAKE_BUILD_TYPE=$BUILD_TYPE;-DCMAKE_CXX_STANDARD=11;-DGISMO_WITH_XDEBUG=ON;-DGISMO_BUILD_UNITTESTS=ON" -D GISMO_OPTIONAL="gsOpennurbs" -Q
+      run: ctest -S gismo/cmake/ctest_script.cmake -D CTEST_BUILD_NAME="actions_$GITHUB_RUN_NUMBER" -D CTEST_SITE="${{ matrix.os }}_[actions]" -D CMAKE_ARGS="-DCMAKE_BUILD_TYPE=$BUILD_TYPE;-DCMAKE_CXX_STANDARD=11;-DGISMO_WITH_XDEBUG=ON;-DGISMO_BUILD_UNITTESTS=ON" -D GISMO_OPTIONAL="${{ github.event.repository.name }}" -Q
