@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-    concurrency: 
+    concurrency:
       group: ${{ github.head_ref }}
       cancel-in-progress: true
     steps:
