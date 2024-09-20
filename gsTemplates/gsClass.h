@@ -13,6 +13,8 @@
 SEE ALSO: https://github.com/gismo/gismo/wiki/Contributing#code-style-and-formatting
 */
 
+# ifdef gsCInterface_ENABLED
+
 #pragma once
 #include <gismo.h>
 
@@ -38,3 +40,4 @@ public:
 }; // class submoduleClass
 
 } // namespace gismo
+#endif // gsCInterface_ENABLED

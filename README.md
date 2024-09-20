@@ -31,6 +31,36 @@ As given in CMakeList.txt:
 ### Adding unittests <a name="subparagraph3"></a>
 - TODO
 
+### Adding a C interface
+NOTE: This requires the `gsCInterface` module to be loaded.
+
+An example of C-bindings for `gsTemplates/gsClass.h` can be found in `gsTemplates/gsCClass.h` and `gsTemplates/gsCClass.cpp`. 
+
+To make the bindings detectable, they need to be included in `gsCInterface/Cgismo.h`, as follows:
+```C++
+#ifdef gsModule_ENABLED
+#include <gsModule/gsCClass.h>
+#endif
+```
+
+To include the C bindings in the MATLAB interface (see the `gsMatlab` module), the C header files need to be included into `gsMatlab/src/gismo_initialize.m.in` as follows:
+```
+%%% Optional Modules
+%%  gsModule @gsModule_path@
+```
+and
+```
+... %%% Optional Modules
+... %%  gsModule @gsModule_headers@
+```
+As well as in the `gsMatlab/CMakeLists.txt`
+```cmake
+if (${SUBMODULE} STREQUAL "gsModule")
+    set(gsModule_headers "\n            'addheader','gsCClass.h',...")
+    set(gsModule_path "\naddpath(genpath([path_to_optional,'/gsModule']));")
+endif()
+```
+
 ## Frequently asked questions <a name="faq"></a>
 - Dependency of other submodules (TODO)
 - What happens when stable gets a PR and my module is not anymore working?
