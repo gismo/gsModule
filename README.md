@@ -34,7 +34,7 @@ As given in CMakeList.txt:
 ### Adding a C interface
 NOTE: This requires the `gsCInterface` module to be loaded.
 
-An example of C-bindings for `gsTemplates/gsClass.h` can be found in `gsTemplates/gsCClass.h` and `gsTemplates/gsCClass.cpp`. 
+An example of C-bindings for `gsTemplates/gsClass.h` can be found in `gsTemplates/cinterface/gsCClass.h` and `gsTemplates/cinterface/gsCClass.cpp`.
 
 To make the bindings detectable, they need to be included in `gsCInterface/Cgismo.h`, as follows:
 ```C++

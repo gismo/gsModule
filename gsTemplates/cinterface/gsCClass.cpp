@@ -1,8 +1,8 @@
-#ifdef gsCInterface_ENABLED
+// #ifdef gsCInterface_ENABLED // This does not work....?
 
 #include <gismo.h>
 #include <gsModule/gsTemplates/gsClass.h>
-#include <gsModule/gsTemplates/gsCClass.h>
+#include <gsModule/cinterface/gsCClass.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -24,4 +24,4 @@ GISMO_EXPORT void submoduleClass_delete(CsubmoduleClass * ptr)
 }
 #endif
 
-#endif // gsCInterface_ENABLED
+// #endif // gsCInterface_ENABLED
